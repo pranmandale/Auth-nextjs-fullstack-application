@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -22,7 +21,7 @@ export default function LoginPage() {
     
     const onLogin = async () => {
         try {
-            setLoading(true);
+          setLoading(true);
           const response = await axios.post("/api/users/login", user);
           console.log("login successfully",response.data)
           toast.success("login success")
@@ -45,13 +44,13 @@ export default function LoginPage() {
     }, [user])
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-600">
+        <div className="flex flex-col justify-center items-center bg-gray-600 py-2 border min-h-screen">
             <h1>{loading ? "Processing " : "Login"}</h1>
             <br/>
             
             <label htmlFor="email">email</label>
             <input 
-            className="p-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-gray-600"
+            className="border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none"
                 id="email"
                 type="email" 
                 placeholder="Email" 
@@ -61,14 +60,14 @@ export default function LoginPage() {
             <br/>
             <label htmlFor="password">password</label>
             <input 
-             className="p-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-gray-600"
+             className="border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none"
                 id="password"
                 type="password" 
                 placeholder="Password" 
                 value={user.password}  // Corrected typo here
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
-            <button className="p-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-gray-600" 
+            <button className="border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none" 
             onClick={onLogin}>
                 {/* Login */}
                 {loading ? "Processing" : buttonDisabled ? "No login" : "Login"}
