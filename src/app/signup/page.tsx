@@ -46,15 +46,15 @@ export default function SignupPage() {
     return (
         <div className="flex flex-col justify-center items-center bg-gray-600 py-2 min-h-screen">
             <div className="bg-white w-[400px] h-[500px]">
-                <h1 className="flex justify-center items-center p-2 font-bold text-2xl">{loading ? "Processing" : "Signup"}</h1>
-                <br />
+                <h1 className="flex justify-center items-center p-4 font-bold text-2xl">{loading ? "Processing" : "Signup"}</h1>
+                
 
                 
                    <div className='flex flex-col justify-center justify-center px-4'>
                    <label htmlFor="username" className="pb-2 font-semibold text-xl">Username</label>
                    
                     <input
-                        className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg w-[80%] focus:outline-none"
+                        className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none"
                         id="username"
                         type="text"
                         placeholder="Username"
@@ -69,7 +69,7 @@ export default function SignupPage() {
                 <div className="flex flex-col justify-center px-4">
                 <label htmlFor="email" className="p-2 font-semibold text-xl">Email</label>
                 <input
-                    className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg w-[80%] focus:outline-none"
+                    className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none"
                     id="email"
                     type="email"
                     placeholder="Email"
@@ -82,7 +82,7 @@ export default function SignupPage() {
                 <div className="flex flex-col px-4">
                 <label htmlFor="password" className="p-2 font-semibold text-xl">Password</label>
                 <input
-                    className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg w-[80%] focus:outline-none"
+                    className="items-center border-gray-300 focus:border-gray-600 mb-3 p-2 border rounded-lg focus:outline-none"
                     id="password"
                     type="password"
                     placeholder="Password"
