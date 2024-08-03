@@ -1,5 +1,3 @@
-
-
 "use client";
 import axios from "axios";
 import Link from "next/link";
@@ -17,7 +15,7 @@ export default function ProfilePage() {
             toast.success('Logout successful');
             router.push('/login');
         } catch (error) {
-            const errorMessage = error.response?.data?.message || error.message || "An error occurred during logout";
+            const errorMessage = (error as any).response?.data?.message || (error as any).message || "An error occurred during logout";
             console.error("Logout error:", errorMessage);
             toast.error(errorMessage);
         }
@@ -34,31 +32,31 @@ export default function ProfilePage() {
                 setData("nothing");
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || error.message || "Failed to fetch user details";
+            const errorMessage = (error as any).response?.data?.message || (error as any).message || "Failed to fetch user details";
             console.error("GetUserDetails error:", errorMessage);
             toast.error(errorMessage);
         }
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-600">
+        <div className="flex flex-col justify-center items-center bg-gray-600 py-2 min-h-screen">
             <h1>Profile</h1>
             <hr />
             <p>Profile page</p>
-            <h2 className="p-1 rounded bg-yellow-400">
+            <h2 className="bg-yellow-400 p-1 rounded">
                 {data === 'nothing' ? "Nothing" : <Link href={`/profile/${data}`}>{data}</Link>}
             </h2>
             <hr />
             <button
                 onClick={logout}
-                className="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-blue-500 hover:bg-blue-700 mt-4 px-4 py-2 rounded font-bold text-white"
             >
                 Logout
             </button>
 
             <button
                 onClick={getUserDetails}
-                className="bg-yellow-500 mt-4 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+                className="bg-yellow-500 hover:bg-yellow-600 mt-4 px-4 py-2 rounded font-bold text-white"
             >
                 Get User Details
             </button>
